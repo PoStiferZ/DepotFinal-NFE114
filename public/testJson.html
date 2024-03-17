@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Json</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="etus"></div>
+    <button onclick="traiterClic()">Récupérer données</button>
+
+    <script>
+        function traiterClic() {
+            console.log("Clic !");
+            $.get("../index.php?action=getEtudiantsJson", traiterReponseServeur);
+        }
+
+        function traiterReponseServeur(data) {
+            console.log(data);
+            data.forEach(element => {
+                echo element.id_utilisateur
+            });
+            $("#etus").html(data);
+        }
+    </script>
+</body>
+</html>
